@@ -14,16 +14,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <Button
-        android:id="@+id/Button_Fav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Favori"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.959" />
-
     <view
         android:id="@+id/view"
         class="android.support.design.card.MaterialCardView"
@@ -83,5 +73,14 @@
         android:text="TextView"
         tools:layout_editor_absoluteX="55dp"
         tools:layout_editor_absoluteY="541dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_baseline_local_phone_24"
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="190dp" />
 
 </android.support.constraint.ConstraintLayout>
