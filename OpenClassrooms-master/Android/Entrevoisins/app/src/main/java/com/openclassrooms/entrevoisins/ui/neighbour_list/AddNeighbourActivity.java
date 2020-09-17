@@ -40,7 +40,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
 
     private NeighbourApiService mApiService;
-    private NeighbourApiService mFavorite;
+
     private String mNeighbourImage;
 
     @Override
@@ -50,7 +50,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mApiService = DI.getNeighbourApiService();
-        mFavorite =  DI.getNeighbourApiService();
+
         init();
     }
 
