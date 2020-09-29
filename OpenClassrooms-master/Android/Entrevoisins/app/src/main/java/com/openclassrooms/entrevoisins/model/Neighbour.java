@@ -92,7 +92,7 @@ public class Neighbour {
         this.aboutMe = aboutMe;
     }
 
-    public boolean isFavorite() {
+    public boolean isFavorite(boolean flag) {
         return favorite;
     }
 
