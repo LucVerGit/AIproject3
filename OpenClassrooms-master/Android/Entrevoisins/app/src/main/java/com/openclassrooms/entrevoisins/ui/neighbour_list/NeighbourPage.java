@@ -15,7 +15,7 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import butterknife.BindView;
-import butterknife.OnClick;
+import butterknife.ButterKnife;
 
 public class NeighbourPage extends AppCompatActivity {
 
@@ -51,14 +51,18 @@ public class NeighbourPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_neighbour_page);
         mApiService = DI.getNeighbourApiService();
+
+        ButterKnife.bind( this);
+
         displayDetail();
         actionOnFavoriteButton();
         actionOnButtonback();
 
     }
-      // afficher les infos
+      // afficher les infos via le passaqge parcelle
     private void displayDetail() {
         if (getIntent().hasExtra("Neighbour")) {
             Neighbour neighbour = getIntent().getExtras().getParcelable("Neighbour");
@@ -87,7 +91,7 @@ public class NeighbourPage extends AppCompatActivity {
                 if (!mApiService.getFavoriteNeighbour().contains(neighbour)) {
                     mApiService.addFavoriteNeighbour(neighbour);
 
-                    mImageButtonFav.setImageResource(R.drawable.ic_star_white_24dp);
+                    mImageButtonFav.setImageResource(R.drawable.ic_baseline_favorite_24);
                     Toast.makeText(this, "favorite is add in your personnal list", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, " already favorite ", Toast.LENGTH_SHORT).show();

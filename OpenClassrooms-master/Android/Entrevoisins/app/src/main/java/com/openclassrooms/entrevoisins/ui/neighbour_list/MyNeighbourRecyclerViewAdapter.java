@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,9 @@ import butterknife.ButterKnife;
 
 public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeighbourRecyclerViewAdapter.ViewHolder> {
 
-    //permet de geredeux liste independente de instance de object neibourg en normal et favori
+
+    //permet de generer une liste independente de instance de object neibourg en normal et favori
+
     public enum ListType {
         NEIGHBOURS,
         FAVORITE
@@ -99,6 +102,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         @Override
         public void onClick(View v) {
             mOnItemListener.onItemClick(getAdapterPosition());
+            Log.println(Log.WARN, "recyadper", "All the cookies have been eaten by " );
         }
     }
     /**

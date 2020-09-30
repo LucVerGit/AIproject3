@@ -1,11 +1,13 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +23,10 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter.ListType.NEIGHBOURS;
 
-public class NeighbourFragment extends Fragment {
+
+public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerViewAdapter.onItemListener {
 
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
@@ -60,7 +64,8 @@ public class NeighbourFragment extends Fragment {
      */
     private void initList() {
         mNeighbours = mApiService.getNeighbours();
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours,getContext()));
+        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours,this,MyNeighbourRecyclerViewAdapter.ListType.NEIGHBOURS));
+
     }
 
     @Override
@@ -89,5 +94,17 @@ public class NeighbourFragment extends Fragment {
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
         initList();
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Log.println(Log.WARN, "frag", "frag work clik " );
+        Context context = getActivity();
+        Bundle info = new Bundle();
+        info.putParcelable("Neighbour",mNeighbours.get(position));
+        Intent intent = new Intent (context, NeighbourPage.class);
+        intent.putExtras(info);
+        startActivity(intent);
+
     }
 }

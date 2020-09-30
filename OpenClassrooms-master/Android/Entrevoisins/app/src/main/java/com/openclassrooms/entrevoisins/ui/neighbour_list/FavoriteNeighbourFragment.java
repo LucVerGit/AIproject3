@@ -3,6 +3,7 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,6 +23,8 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
+
+import static com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter.ListType.FAVORITE;
 
 public class FavoriteNeighbourFragment extends Fragment implements MyNeighbourRecyclerViewAdapter.onItemListener {
 
