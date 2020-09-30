@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -37,6 +38,8 @@
                 android:layout_height="match_parent"
                 android:contentDescription="profil"
                 android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_background" />
 
             <ImageButton
@@ -157,24 +160,19 @@
         android:id="@+id/activity_aboutMe1_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="8dp"
         android:text="a_propos_de_moi"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/activity_description_text" />
 
     <TextView
         android:id="@+id/activity_aboutMe_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:padding="14dp"
-        android:text="bonjour_je_souhaiterais_faire_de_la_marche_nordique_pas_initi_e_je_recherche_une_ou_plusieurs_personnes_susceptibles_de_m_accompagner_j_aime_les_jeux_de_cartes_tels_la_belote_et_le_tarot"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_description_text"
+         />
 
 
 </android.support.constraint.ConstraintLayout>
