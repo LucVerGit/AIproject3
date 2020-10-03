@@ -8,10 +8,9 @@ import java.util.List;
 /**
  * Dummy mock for the Api
  */
-public class DummyNeighbourApiService implements  NeighbourApiService {
+public class DummyNeighbourApiService implements NeighbourApiService {
 
-    private List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
-    private List<Neighbour> favneighbours= new ArrayList<>();
+    public List<Neighbour> neighbours = DummyNeighbourGenerator.generateNeighbours();
 
 
     /**
@@ -32,6 +31,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     /**
      * {@inheritDoc}
+     *
      * @param neighbour
      */
     @Override
@@ -41,21 +41,31 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     @Override
     public void addFavoriteNeighbour(Neighbour neighbour) {
-        if (!favneighbours.contains(neighbour)) {
-            favneighbours.add(neighbour);
-        }
+
+        neighbours.get( neighbours.indexOf(neighbour)).setFavorite(true);
+
     }
 
 
     @Override
-    public List<Neighbour> getFavoriteNeighbour()
-    {
+    public List<Neighbour> getFavoriteNeighbour() {
+        List<Neighbour> favneighbours = new ArrayList<>();
+
+        for (Neighbour n : neighbours
+        ) {
+
+        if (n.isFavorite())
+        {
+            favneighbours.add(n);
+        }
+        }
+
         return favneighbours;
     }
 
     @Override
     public void deleteFavoriteNeighbour(Neighbour neighbour) {
-            favneighbours.remove(neighbour);
-        }
+        neighbours.get( neighbours.indexOf(neighbour)).setFavorite(false);
     }
+}
 
