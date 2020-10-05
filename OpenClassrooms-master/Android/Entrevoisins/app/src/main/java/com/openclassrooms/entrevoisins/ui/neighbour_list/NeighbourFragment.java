@@ -98,7 +98,6 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
 
     @Override
     public void onItemClick(int position) {
-        Log.println(Log.WARN, "frag", "frag work clik " );
         Context context = getActivity();
         Bundle info = new Bundle();
         info.putParcelable("Neighbour",mNeighbours.get(position));

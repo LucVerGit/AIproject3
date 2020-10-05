@@ -28,7 +28,7 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
         }
 
 
-       // return NeighbourFragment.newInstance();
+
     }
 
     /**

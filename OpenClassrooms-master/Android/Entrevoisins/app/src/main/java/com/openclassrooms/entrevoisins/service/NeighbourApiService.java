@@ -28,8 +28,7 @@ public interface NeighbourApiService {
      */
     void createNeighbour(Neighbour neighbour);
 
-    //TODO done
-    // gestion des favorit
+
     void addFavoriteNeighbour(Neighbour neighbour);
     void deleteFavoriteNeighbour(Neighbour neighbour);
 

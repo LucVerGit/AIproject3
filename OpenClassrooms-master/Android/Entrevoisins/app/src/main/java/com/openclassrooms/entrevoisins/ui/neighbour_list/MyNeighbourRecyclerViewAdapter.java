@@ -102,7 +102,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         @Override
         public void onClick(View v) {
             mOnItemListener.onItemClick(getAdapterPosition());
-            Log.println(Log.WARN, "recyadper", "All the cookies have been eaten by " );
+
         }
     }
     /**

@@ -62,7 +62,7 @@ public class NeighbourPage extends AppCompatActivity {
         actionOnButtonback();
 
     }
-      // afficher les infos via le passaqge parcelle
+
     private void displayDetail() {
         if (getIntent().hasExtra("Neighbour")) {
             Neighbour neighbour = getIntent().getExtras().getParcelable("Neighbour");
