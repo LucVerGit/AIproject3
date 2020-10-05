@@ -61,6 +61,8 @@ public class Neighbour implements Parcelable {
      * @param name
      * @param avatarUrl
      */
+
+
     public Neighbour(long id, String name, String avatarUrl, String address,
                      String phoneNumber, String aboutMe) {
         this.id = id;
