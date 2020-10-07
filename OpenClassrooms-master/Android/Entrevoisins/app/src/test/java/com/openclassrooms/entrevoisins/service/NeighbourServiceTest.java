@@ -11,6 +11,7 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 
@@ -40,4 +41,32 @@ public class NeighbourServiceTest {
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
+
+
+    @Test
+    public void getFavoriteNeighbour (){
+        List<Neighbour> mFavoriteNeighbour = service.getFavoriteNeighbour();
+        List<Neighbour> expectedmFavoriteNeighbour = service.getFavoriteNeighbour();
+        assertThat(mFavoriteNeighbour, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedmFavoriteNeighbour.toArray()));
+    }
+
+    @Test
+    public void addFavoriteNeighbour (){
+        Neighbour neighbour = new Neighbour(1, "Caroline", "https://i.pravatar.cc/350?u=a042581f4e29026704d", "lyon ; 5km",
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
+        service.addFavoriteNeighbour(neighbour);
+        assertEquals(1, service.getFavoriteNeighbour().size());
+    }
+
+    @Test
+    public void deleteFavoriteNeighbour (){
+        Neighbour neighbour = new Neighbour(1, "Caroline", "https://i.pravatar.cc/350?u=a042581f4e29026704d", "lyon ; 5km",
+                "+33 6 86 57 90 14",  "Bonjour !Je souhaiterais faire de la marche nordique. Pas initiée, je recherche une ou plusieurs personnes susceptibles de m'accompagner !J'aime les jeux de cartes tels la belote et le tarot..");
+        service.addFavoriteNeighbour(neighbour);
+        Neighbour neighbourFavToDelete = service.getFavoriteNeighbour().get(0);
+        service.deleteFavoriteNeighbour(neighbourFavToDelete);
+        assertFalse(service.getFavoriteNeighbour().contains(neighbourFavToDelete));
+    }
+
+
 }
